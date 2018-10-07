@@ -1,0 +1,47 @@
+{
+  "name": "ts-babel-jest",
+  "version": "1.0.0",
+  "description": "typescript-babel-jest starter-kit",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build": "npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
+    "bundle": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tompascall/ts-babel-jest.git"
+  },
+  "keywords": [
+    "typescript",
+    "babel",
+    "jest",
+    "starter",
+    "kit"
+  ],
+  "author": "tompascall",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tompascall/ts-babel-jest/issues"
+  },
+  "homepage": "https://github.com/tompascall/ts-babel-jest#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-typescript": "^7.0.0",
+    "@types/jest": "^23.3.3",
+    "babel-loader": "^8.0.0",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.4",
+    "typescript": "^3.0.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  }
+}
