@@ -12,6 +12,12 @@ describe('Being', () => {
       expect(being.getStatus()).toBe(status.ALIVE);
     });
 
+    it('should be able to set status to DEAD', () => {
+      being = new Being(new Point(0,0));
+      being.setStatus(status.DEAD);
+      expect(being.getStatus()).toBe(status.DEAD);
+    });
+
     it('should set position', () => {
       being = new Being(new Point(0,1));
       const position = being.getPosition();
@@ -24,6 +30,7 @@ describe('Being', () => {
     it('should count neighbours if got beings', () => {
       being = new Being(new Point(0,0));
       const beings = new Beings([
+        being,
         new Being(new Point(0, 1)),
         new Being(new Point(-1, 0)),
         new Being(new Point(-1, -1)),

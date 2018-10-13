@@ -16,6 +16,10 @@ export default class Being {
     return this.status;
   }
 
+  setStatus(status: status) {
+    this.status = status;
+  }
+
   getPosition(): Point {
     return this.position;
   }
