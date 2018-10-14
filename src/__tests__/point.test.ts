@@ -65,4 +65,9 @@ describe('Point', () => {
     expect(neighbour.getX()).toBe(1);
     expect(neighbour.getY()).toBe(1);
   });
+
+  it('should get coord string', () => {
+    point = new Point(0,0);
+    expect(point.getCoordString()).toBe(`${point.getX()},${point.getY()}`)
+  });
 });

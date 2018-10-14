@@ -40,4 +40,22 @@ describe('Being', () => {
       expect(being.countNeighbours(beings)).toBe(3);
     });
   });
+
+  describe('getNeighboursPositions', () => {
+    being = new Being(new Point(0,0));
+    const neighboursPositions = being.getNeighboursPositions();
+    expect(neighboursPositions.length).toBe(8);
+    expect(new Set(neighboursPositions.map(point =>
+      point.getCoordString())))
+      .toEqual(new Set([
+        (new Point(-1, -1)).getCoordString(),
+        (new Point(-1, 0)).getCoordString(),
+        (new Point(-1, 1)).getCoordString(),
+        (new Point(0, -1)).getCoordString(),
+        (new Point(0, 1)).getCoordString(),
+        (new Point(1, -1)).getCoordString(),
+        (new Point(1, 0)).getCoordString(),
+        (new Point(1, 1)).getCoordString(),
+      ]));
+  });
 });

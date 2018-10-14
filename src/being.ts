@@ -37,4 +37,16 @@ export default class Being {
       north + northEast + east + southEast + south + southWest + west + northWest
     );
   }
+  getNeighboursPositions() {
+    return [
+      this.position.getNorth(),
+      this.position.getNorthWest(),
+      this.position.getWest(),
+      this.position.getSouthWest(),
+      this.position.getSouth(),
+      this.position.getSouthEast(),
+      this.position.getEast(),
+      this.position.getNorthEast()
+    ];
+  }
 }

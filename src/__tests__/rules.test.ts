@@ -71,20 +71,76 @@ describe('Rules', () => {
   });
 
   describe('Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.', () => {
-    it('should be alive if cell is dead and has 3 neighbours', () => {
-      rules = new Rules();
-      // being = new Being(new Point(0,0));
-      // being.setStatus(status.DEAD);
-
-      // beings = new Beings([
-      //   being,
-      //   new Being(new Point(0, 1)),
-      //   new Being(new Point(0, -1)),
-      //   new Being(new Point(-1, -1)),
-      //   new Being(new Point(1, 1)),
-      // ]);
-      // expect(rules.getNextStatus(being, beings)).toBe(status.DEAD);
+    describe('getNextDeads', () => {
+      it('should return dead beings', () => {
+        rules = new Rules();
+        being = new Being(new Point(0, 0)),
+        beings = new Beings([
+          being,
+          new Being(new Point(0, 1)),
+          new Being(new Point(0, -1)),
+          new Being(new Point(-1, -1)),
+          new Being(new Point(1, 1)),
+        ]);
+        const deads = rules.getNextDeads(beings);
+        expect(deads.length).toBe(1);
+        expect(deads[0]).toBe(being);
+      });
     });
+
+    describe('getNextSurvivals', () => {
+      let survivals: Being[];
+
+      it('should return survivals', () => {
+        rules = new Rules();
+        being = new Being(new Point(0, 0)),
+        survivals = [
+          new Being(new Point(0, 1)),
+          new Being(new Point(0, -1)),
+          new Being(new Point(-1, -1)),
+          new Being(new Point(1, 1)),
+        ];
+        beings = new Beings([
+          being,
+          ...survivals
+        ]);
+        const deads = rules.getNextSurvivals(beings);
+        expect(deads.length).toBe(4);
+        expect(deads).toEqual(survivals);
+      });
+    });
+
+    describe('getNextNewborns', () => {
+      rules = new Rules();
+      const being1 = new Being(new Point(0, 0));
+      const being2 = new Being(new Point(1, 0));
+      const neighbours = [
+        new Being(new Point(0, 1)),
+        new Being(new Point(0, -1)),
+        new Being(new Point(1, 1)),
+      ];
+      beings = new Beings([
+        ...neighbours
+      ]);
+      const newborns = rules.getNextNewborns(beings);
+      expect(newborns.length).toBe(2);
+      expect(newborns[0].getPosition().getX()).toEqual(being1.getPosition().getX());
+      expect(newborns[0].getPosition().getY()).toEqual(being1.getPosition().getY());
+      expect(newborns[1].getPosition().getX()).toEqual(being2.getPosition().getX());
+      expect(newborns[1].getPosition().getY()).toEqual(being2.getPosition().getY());
+    });
+  });
+
+  describe('getNextGeneration', () => {
+    beings = new Beings([
+      new Being(new Point(0, 1)),
+      new Being(new Point(0, -1)),
+      new Being(new Point(1, 1)),
+    ]);
+
+    rules = new Rules();
+    const nextGeneration: Beings = rules.getNextGeneration(beings);
+    expect(nextGeneration.getBeings().size).toBe(5);
   });
 });
 

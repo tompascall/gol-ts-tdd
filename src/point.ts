@@ -46,4 +46,9 @@ export default class Point {
   getNorthEast() {
     return new Point(this.x + 1, this.y + 1);
   }
+
+  getCoordString(): string {
+    return `${this.getX()},${this.getY()}`;
+  }
+
 }

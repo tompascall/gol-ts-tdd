@@ -6,15 +6,22 @@ export default class Beings {
 
   constructor(beings: Being[]) {
     this.beings = new Map();
-    beings.forEach(being =>
-      this.beings.set(this.getCoordString(being.getPosition()), being));
+    beings.forEach(being => this.add(being));
+  }
+
+  add(being: Being) {
+    this.beings.set(being.getPosition().getCoordString(), being);
+  }
+
+  getBeings(): Map<string, Being> {
+    return this.beings;
   }
 
   hasBeing(point: Point): boolean {
-    return this.beings.has(this.getCoordString(point));
+    return this.beings.has(point.getCoordString());
   }
 
-  getCoordString(point: Point): string {
-    return `${point.getX()},${point.getY()}`;
+  addMore(points: Point[]) {
+    points.forEach(point => this.add(new Being(point)));
   }
 }
