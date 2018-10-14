@@ -71,23 +71,6 @@ describe('Rules', () => {
   });
 
   describe('Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.', () => {
-    describe('getNextDeads', () => {
-      it('should return dead beings', () => {
-        rules = new Rules();
-        being = new Being(new Point(0, 0)),
-        beings = new Beings([
-          being,
-          new Being(new Point(0, 1)),
-          new Being(new Point(0, -1)),
-          new Being(new Point(-1, -1)),
-          new Being(new Point(1, 1)),
-        ]);
-        const deads = rules.getNextDeads(beings);
-        expect(deads.length).toBe(1);
-        expect(deads[0]).toBe(being);
-      });
-    });
-
     describe('getNextSurvivals', () => {
       let survivals: Being[];
 

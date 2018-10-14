@@ -24,16 +24,6 @@ export default class Rules implements RulesI {
     return status.ALIVE;
   }
 
-  getNextDeads(beings: Beings): Being[] {
-    const nextDeads = [];
-    for (let [_, being] of beings.getBeings()) {
-      if (this.getNextStatus(being, beings) === status.DEAD) {
-        nextDeads.push(being);
-      }
-    }
-    return nextDeads;
-  }
-
   getNextSurvivals(beings: Beings): Being[] {
     const nextSurvivals = [];
     for (let [_, being] of beings.getBeings()) {

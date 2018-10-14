@@ -18,4 +18,7 @@
 ```npm test```
 ```npm test:watch```
 
+### Demo
 
+```npm run bundle```
+```node node dist/app.bundle.js```
