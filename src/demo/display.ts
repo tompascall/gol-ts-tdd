@@ -15,6 +15,7 @@ const getBeingsFromSeed = (seed: Array<Array<Number>>) => {
   });
   return new Beings(beingList);
 }
+
 const clearScreen = () => {
   console.log('\x1B[2J');
 }
