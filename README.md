@@ -1,5 +1,7 @@
 ## Game of Life with typescript and tdd 
 
+Implementation of Conway's [Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
+
 ### Building the repo
 
 ```npm run build```
@@ -21,4 +23,4 @@
 ### Demo
 
 ```npm run bundle```
-```node node dist/app.bundle.js```
+```node dist/app.bundle.js```
