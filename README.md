@@ -8,7 +8,7 @@ Implementation of Conway's [Game of Life](https://en.wikipedia.org/wiki/Conway%2
 
 ### Type checking the repo
 
-```npm run type-check```
+```npm run type-check```  
 ```npm run type-check:watch```
 
 ### Create bundle
@@ -17,10 +17,10 @@ Implementation of Conway's [Game of Life](https://en.wikipedia.org/wiki/Conway%2
 
 ### Testing (using jest)
 
-```npm test```
+```npm test```  
 ```npm test:watch```
 
 ### Demo
 
-```npm run bundle```
+```npm run bundle```  
 ```node dist/app.bundle.js```
