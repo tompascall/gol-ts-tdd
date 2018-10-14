@@ -13,8 +13,6 @@ export default class Rules implements RulesI {
     return (being.getStatus() === status.ALIVE && neighboursCount > 3);
   }
 
-  constructor() {}
-
   getNextStatus(being: Being, beings: Beings): status {
     const neighboursCount = being.countNeighbours(beings);
 
@@ -62,7 +60,6 @@ export default class Rules implements RulesI {
 
   getNextGeneration(beings: Beings): Beings {
     const nextGen = new Beings([
-      ...this.getNextDeads(beings),
       ...this.getNextSurvivals(beings),
       ...this.getNextNewborns(beings)
     ]);

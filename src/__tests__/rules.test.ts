@@ -140,7 +140,7 @@ describe('Rules', () => {
 
     rules = new Rules();
     const nextGeneration: Beings = rules.getNextGeneration(beings);
-    expect(nextGeneration.getBeings().size).toBe(5);
+    expect(nextGeneration.getBeings().size).toBe(2);
   });
 });
 
